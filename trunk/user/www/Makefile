@@ -227,6 +227,9 @@ endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_SQM),y)
 	rm -f $(INSTALLDIR)/www/Advanced_SQM.asp
 endif
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_WIFIDOG),y)
+	rm -f $(INSTALLDIR)/www/Advanced_wifidog.asp
+endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_SMARTDNS),y)
 	rm -f $(INSTALLDIR)/www/Advanced_smartdns.asp
 endif

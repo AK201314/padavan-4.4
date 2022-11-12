@@ -2237,6 +2237,14 @@ static int dnsforwarder_status_hook(int eid, webs_t wp, int argc, char **argv)
 {
 	int status_code = pids("dns-forwarder");
 	websWrite(wp, "function dnsforwarder_status() { return %d;}\n", status_code);
+return 0;
+}
+#endif
+#if defined (APP_WIFIDOG)
+static int wifidog_status_hook(int eid, webs_t wp, int argc, char **argv)
+{
+	int wifidog_status_code = pids("wifidog");
+	websWrite(wp, "function wifidog_status() { return %d;}\n", wifidog_status_code);
 	return 0;
 }
 #endif
@@ -2560,6 +2568,11 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 #else
 	int found_app_smartdns = 0;
 #endif
+#if defined(APP_WIFIDOG)
+	int found_app_wifidog = 1;
+#else
+	int found_app_wifidog = 0;
+#endif
 #if defined(APP_ADBYBY)
 	int found_app_adbyby = 1;
 #else
@@ -2773,6 +2786,7 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		"function found_app_xupnpd() { return %d;}\n"
 		"function found_app_mentohust() { return %d;}\n"
 		"function found_app_adbyby() { return %d;}\n"
+		"function found_app_wifidog() { return %d;}\n"
 		"function found_app_zerotier() { return %d;}\n"
 		"function found_app_ddnsto() { return %d;}\n"
 		"function found_app_aldriver() { return %d;}\n"
@@ -2806,6 +2820,7 @@ ej_firmware_caps_hook(int eid, webs_t wp, int argc, char **argv)
 		found_app_xupnpd,
 		found_app_mentohust,
 		found_app_adbyby,
+		found_app_wifidog,
 		found_app_zerotier,
 		found_app_ddnsto,
 		found_app_aldriver,
@@ -4551,6 +4566,9 @@ struct ej_handler ej_handlers[] =
 #if defined (APP_ADBYBY)
 	{ "adbyby_action", adbyby_action_hook},
 	{ "adbyby_status", adbyby_status_hook},
+#endif
+#if defined (APP_WIFIDOG)
+	{ "wifidog_status", wifidog_status_hook},
 #endif
 #if defined (APP_DNSFORWARDER)
 	{ "dnsforwarder_status", dnsforwarder_status_hook},
