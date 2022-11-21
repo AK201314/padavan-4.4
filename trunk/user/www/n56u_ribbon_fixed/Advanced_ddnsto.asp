@@ -139,7 +139,7 @@ function done_validating(action){
                                     <a href="Advanced_zerotier.asp"><#menu5_32_1#></a>
                                 </li>
 								<li class="active">
-                                    <a href="Advanced_ddnsto.asp"><#menu5_34_1#></a>
+                                    <a href="Advanced_ddnsto.asp">ddnsto</a>
                                 </li>
 								<li id="wiink" style="display:none">
                                     <a href="Advanced_wireguard.asp"><#menu5_35_1#></a>
