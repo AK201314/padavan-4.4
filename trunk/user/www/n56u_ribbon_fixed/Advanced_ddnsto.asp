@@ -28,7 +28,7 @@ var $j = jQuery.noConflict();
 $j(document).ready(function() {
 	
 	init_itoggle('ddnsto_enable');
-
+    init_itoggle('ddnsto_Daemon');
 });
 
 </script>
@@ -139,7 +139,7 @@ function done_validating(action){
                                     <a href="Advanced_zerotier.asp"><#menu5_32_1#></a>
                                 </li>
 								<li class="active">
-                                    <a href="Advanced_ddnsto.asp">ddnsto</a>
+                                    <a href="Advanced_ddnsto.asp"><#menu5_34_1#></a>
                                 </li>
 								<li id="wiink" style="display:none">
                                     <a href="Advanced_wireguard.asp"><#menu5_35_1#></a>
@@ -178,6 +178,23 @@ function done_validating(action){
 												<div style="position: absolute; margin-left: -10000px;">
 													<input type="radio" value="1" name="ddnsto_enable" id="ddnsto_enable_1" class="input" value="1" <% nvram_match_x("", "ddnsto_enable", "1", "checked"); %> /><#checkbox_Yes#>
 													<input type="radio" value="0" name="ddnsto_enable" id="ddnsto_enable_0" class="input" value="0" <% nvram_match_x("", "ddnsto_enable", "0", "checked"); %> /><#checkbox_No#>
+													
+														</div>
+	</td>
+	</tr>
+	<tr>
+	<th width="30%" style="border-top: 0 none;">守护进程</th>
+	<td style="border-top: 0 none;">
+	<div class="main_itoggle">
+	<div id="ddnsto_Daemon_on_of">
+	<input type="checkbox" id="ddnsto_Daemon_fake" <% nvram_match_x("", "ddnsto_Daemon", "1", "value=1 checked"); %><% nvram_match_x("", "ddnsto_Daemon", "0", "value=0"); %>  />
+	</div>
+	</div>
+	<div style="position: absolute; margin-left: -10000px;">
+	<input type="radio" value="1" name="ddnsto_Daemon" id="ddnsto_Daemon_1" class="input" value="1" <% nvram_match_x("", "ddnsto_Daemon", "1", "checked"); %> /><#checkbox_Yes#>
+	<input type="radio" value="0" name="ddnsto_Daemon" id="ddnsto_Daemon_0" class="input" value="0" <% nvram_match_x("", "ddnsto_Daemon", "0", "checked"); %> /><#checkbox_No#>
+													
+													
 												</div>
 											</td>
 
@@ -214,4 +231,3 @@ function done_validating(action){
 </div>
 </body>
 </html>
-
